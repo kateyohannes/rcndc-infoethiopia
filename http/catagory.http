@@ -1,0 +1,31 @@
+
+GET http://localhost:3000/catagory
+Accept: application/json
+
+###
+
+GET http://localhost:3000/catagory/6779589e87cfc0fe592cd767
+Accept: application/json
+
+###
+
+POST http://localhost:3000/catagory/add
+Content-Type: application/json
+
+{
+    "parent": "67795a7e53efe421db2ed1ca",
+    "name": "Laptop"
+}
+
+###
+
+PUT http://localhost:3000/catagory/update/67795a8e53efe421db2ed1cd
+Content-Type: application/json
+
+{
+    "name": "Laptop"
+}
+
+###
+
+DELETE http://localhost:3000/catagory/deleteAll
