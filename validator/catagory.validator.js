@@ -8,7 +8,7 @@ module.exports = {
             parent: Joi.string().optional()
         })
 
-        const { error } = schema.validate(req.body);
+        const { error } = await schema.validateAsync(req.body);
         if(error){
             return res.status(400).json(error)
         }
@@ -21,7 +21,7 @@ module.exports = {
             parent: Joi.string().optional()
         })
 
-        const { error } = schema.validate(req.body);
+        const { error } = await schema.validateAsync(req.body);
         if(error){
             return res.status(400).json(error)
         }
