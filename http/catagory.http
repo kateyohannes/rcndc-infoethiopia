@@ -4,7 +4,7 @@ Accept: application/json
 
 ###
 
-GET http://localhost:3000/catagory/6779589e87cfc0fe592cd767
+GET http://localhost:3000/catagory/67795a7e53efe421db2ed1ca
 Accept: application/json
 
 ###
@@ -13,17 +13,17 @@ POST http://localhost:3000/catagory/add
 Content-Type: application/json
 
 {
-    "parent": "67795a7e53efe421db2ed1ca",
-    "name": "Laptop"
+    "name": "Apple",
+    "parent": "677d7c90e1223ca141a3fd2f"
 }
 
 ###
 
-PUT http://localhost:3000/catagory/update/67795a8e53efe421db2ed1cd
+PUT http://localhost:3000/catagory/update/677d7c90e1223ca141a3fd2f
 Content-Type: application/json
 
 {
-    "name": "Laptop"
+    "name": "cmp"
 }
 
 ###
