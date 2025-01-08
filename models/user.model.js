@@ -2,6 +2,7 @@ const mongoose = require("mongoose")
 
 const userSchema = new mongoose.Schema({
     username: { type: String },
+    email: { type: String },
     password: {
         oldPassword: { type: String },
         currentPassword: { type: String },
@@ -43,6 +44,7 @@ const userSchema = new mongoose.Schema({
             to: { type: Date }
         }
     }],
+    role: { type: String, default: "user" },
     isActive: { type: Boolean, default: true },
 },{
     timestamps: true
