@@ -16,13 +16,23 @@ const addressSchema = new mongoose.Schema({
         long: { type: String }
     },
     gogglMapUrl : { type: String }
+});
+
+const licenceSchema = new mongoose.Schema({
+    type: { type: String },
+    url: { type: String }
 })
 
 const companySchema = new mongoose.Schema({
     name: { type: String },
     description: { type: String },
-    logo : { type: String },
-    licence : { type: String },
+    logo : {
+        url: { type: String },
+        mime: { type: String },
+        resolution: { type: String },
+        uploadedAt: { type: Date }
+    },
+    licence : [ licenceSchema ],
     tel: [{
         type: { type: String },
         code: { type: String },
