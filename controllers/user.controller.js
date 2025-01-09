@@ -5,9 +5,9 @@ module.exports = {
     getUsers: async (req, res)=>{
         try{
             const data = await User.find().select("-password");
-            res.status(200).json(data);
+            return res.status(200).json(data);
         }catch(err){
-            res.status(500).json(err);
+            return res.status(500).json(err);
         }
     },
     getUser: async (req, res)=>{
@@ -53,6 +53,25 @@ module.exports = {
             return res.status(500).json(err);
         }
     },
+    me: async (req, res)=>{
+        try{
+            const user = req.user
+            const data = await User.findOne({
+                _id: user._id
+            }).select("-password")
+
+            if(!data){
+                return res.status(404).json({
+                    message: "User Not Found!"
+                })
+            }
+
+            return res.status(200).json(data)
+
+        }catch(err){
+            return res.status(500).json(err);
+        }
+    },
     setProfile: async (req, res)=>{
         try{
             const { id } = req.params;
@@ -61,14 +80,14 @@ module.exports = {
             if(!user){
                 return res.status(404).json({
                     message: "User Not Found!"
-                })
+                });
             }
 
-            user.profile = body
-            const data = await user.save()
-            return res.status(201).json(data)
+            user.profile = body;
+            const data = await user.save();
+            return res.status(201).json(data);
         }catch(err){
-            return res.status(500).json(err)
+            return res.status(500).json(err);
         }
     },
     deleteUser: async (req, res)=>{
@@ -80,6 +99,7 @@ module.exports = {
                     message: "User Delete Failed!"
                 });
             }
+
             return res.status(200).json(data);
         }catch(err){
             return res.status(500).json(err);
