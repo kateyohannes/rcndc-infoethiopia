@@ -1,12 +1,11 @@
 
 const express = require("express")
-const router = express.Router()
 const {
     getCatagory,
     getCatagories,
     addCatagory,
     updateCatagory,
-
+    
     deleteAll
 } = require("../controllers/catagory.cotroller")
 
@@ -14,6 +13,8 @@ const {
     addCatagoryValidator,
     updateCatagoryValidator
 } = require("../validator/catagory.validator")
+
+const router = express.Router()
 
 router.get("/", getCatagories);
 router.get("/:id", getCatagory);
