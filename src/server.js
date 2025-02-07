@@ -9,6 +9,10 @@ fastify.register(require('@fastify/autoload'),{
     dir: path.join(__dirname, 'plugins')
 });
 
+fastify.register(require('@fastify/autoload'),{
+    dir: path.join(__dirname, 'cron')
+});
+
 fastify.register(require("./routes"), {
     prefix: "/api/v1",
 });
