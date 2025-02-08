@@ -114,11 +114,14 @@ module.exports = async (fastify, options)=>{
         //                         items: { 
         //                             type: 'object',
         //                             properties: {
-        //                                 post_id: { type: 'string' },
+        //                                 article_id: { type: 'string' },
         //                                 saved_at: { type: 'string' }
         //                             },
         //                         },
         //                     },
+        //                     is_company: { type: 'boolean' },
+        //                     is_staff: { type: 'boolean' },
+        //                     is_user: { type: 'boolean' },
         //                     is_active: { type: 'boolean' },
         //                     is_verified: { type: 'boolean' },
         //                     is_subscribed: { type: 'boolean' },
