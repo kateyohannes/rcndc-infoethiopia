@@ -30,7 +30,7 @@ module.exports = async (fastify, options)=>{
                                     enum: ['Top', 'Left', 'Right', 'Bottom' ]
                                 },
                             },
-                            duration: { type: 'string' },
+                            duration: { type: 'number' }, // second, default 5 - 30
                             timetable: {
                                 start_from: { type: 'string'},
                                 end_at: { type: 'string' }
@@ -105,7 +105,7 @@ module.exports = async (fastify, options)=>{
                                 enum: ['Top', 'Left', 'Right', 'Bottom' ]
                             },
                         },
-                        duration: { type: 'string' },
+                        duration: { type: 'number' },
                         timetable: {
                             type: 'object',
                             properties: {
@@ -173,7 +173,7 @@ module.exports = async (fastify, options)=>{
                             enum: ['Top', 'Left', 'Right', 'Bottom' ]
                         },
                     },
-                    duration: { type: 'string' },
+                    duration: { type: 'number', default: 5 },
                     timetable: {
                         type: 'object',
                         properties: {
@@ -182,19 +182,14 @@ module.exports = async (fastify, options)=>{
                         }
                     },
                 },
-                required: ['content_url', 'position', 'duration', 'timetable']
+                required: ['content_url', 'position', 'timetable']
             },
             response:{
-                200: {
+                201: {
                     type: 'object',
                     properties: {
                         acknowledged: { type: 'boolean' },
-                        modifiedCount: { type: 'number' },
-                        upsertedId: { 
-                            type: [ 'string', 'null']
-                        },
-                        upsertedCount: { type: 'number'},
-                        matchedCount: { type: 'number' }
+                        insertedId: { type: 'string' },
                     },
                 },
                 415: {
@@ -225,7 +220,11 @@ module.exports = async (fastify, options)=>{
                 view_counter: 0,
                 is_visible: false,
                 is_checked: false,
-                created_at: new Date()
+                is_approved: {
+                    status: 'Pending'
+                },
+                created_at: new Date(),
+                updated_at: new Date()
             }
 
             const [ err, data ] = await vc(await adCollection.insertOne(input));
