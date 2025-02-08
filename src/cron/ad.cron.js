@@ -11,7 +11,7 @@ module.exports = async (fastify, options)=>{
                 $and: [
                     { is_checked: true },
                     { is_visible: false },
-                    { is_approved: { statis: true }}
+                    { is_approved: { status: true }}
                 ]
             }).toArray());
             if (err) console.log({ err })
