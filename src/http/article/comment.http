@@ -1,0 +1,24 @@
+
+
+GET http://localhost:4500/api/v1/article/67a766609397bf04d49ac5c6
+Accept: application/json
+
+###
+
+GET http://localhost:4500/api/v1/article/comment/67a766609397bf04d49ac5c6
+Accept: application/json
+
+###
+
+PUT http://localhost:4500/api/v1/article/comment/add/67a766609397bf04d49ac5c6
+Content-Type: application/json
+
+{
+    "content": "Nice Job!"
+}
+
+###
+
+DELETE http://localhost:4500/api/v1/article/comment/delete/67a766609397bf04d49ac5c6/67a766769397bf04d49ac5c7
+Accept: application/json
+# 67a766769397bf04d49ac5c7

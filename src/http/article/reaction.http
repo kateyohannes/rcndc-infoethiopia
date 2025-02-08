@@ -1,0 +1,8 @@
+
+
+GET http://localhost:4500/api/v1/article/67a76068c07553c98ba1c818
+Accept: application/json
+
+###
+
+PUT http://localhost:4500/api/v1/article/reaction/like/67a76068c07553c98ba1c818

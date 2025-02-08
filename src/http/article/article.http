@@ -1,0 +1,33 @@
+
+GET http://localhost:4500/api/v1/article
+Accept: application/json
+
+###
+GET http://localhost:4500/api/v1/article/67a766609397bf04d49ac5c6
+Accept: application/json
+
+###
+POST http://localhost:4500/api/v1/article/add
+Content-Type: application/json
+
+{
+    "catagory_id": "catagory_id",
+    "cover_picture": "cover_picture",
+    "articles":[
+        {
+            "lang": "EN",
+            "title": "en_title",
+            "content": "en_content"
+        },
+        {
+            "lang": "AM",
+            "title": "am_title",
+            "content": "am_content"
+        }
+    ]
+}
+
+###
+
+DELETE http://localhost:4500/api/v1/article/deleteAll
+Accept: application/json
