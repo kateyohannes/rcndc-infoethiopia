@@ -1,0 +1,31 @@
+
+###
+
+GET http://localhost:4500/api/v1/company/staff/67a77bd6672ef963490d8865
+Accept: application/json
+
+###
+
+POST http://localhost:4500/api/v1/company/staff/addStaff
+Content-Type: application/json
+
+{
+
+    "username": "username",
+    "password": "password",
+    "email": "email@mail.com",
+    "full_name": {
+        "first_name": "first_name",
+        "middle_name": "middle_name",
+        "last_name": "last_name"
+    },
+    "role": "role"
+}
+
+###
+
+PUT http://localhost:4500/api/v1/company/staff/inactive_account/67a77bd6672ef963490d8865
+
+###
+
+PUT http://localhost:4500/api/v1/company/staff/active_account/67a77bd6672ef963490d8865

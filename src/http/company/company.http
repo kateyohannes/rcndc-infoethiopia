@@ -1,0 +1,12 @@
+
+GET http://localhost:4500/api/v1/company
+
+###
+
+POST http://localhost:4500/api/v1/company/register
+Content-Type: application/json
+
+{
+    "name": "name",
+    "catagory_id": "catagory_id"
+}
