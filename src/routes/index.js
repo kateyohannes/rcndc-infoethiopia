@@ -11,7 +11,12 @@ module.exports = async (fastify, options)=>{
         prefix: '/article'
     })
 
+    fastify.register(require('./company'),{
+        prefix: '/company'
+    });
+    
     fastify.register(require('./user'),{
         prefix: '/user'
     });
+
 }
